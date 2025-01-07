@@ -1,12 +1,15 @@
 const express = require('express')
 const logger = require('morgan')
 const productRouter = require('./routes/productRouter')
+const nameRouter = require('./routes/nameRouter')
+const priceRouter = require('./routes/priceRouter')
 
 const app = express()
 app.use(logger('dev'))
 app.use(express.json())
 app.use ('/'. productRouter)
 app.use('/get-all-products'. nameRouter)
+app.use('/get-product/:productName', priceRouter)
 
 let store = [
     { name: 'apple', 
